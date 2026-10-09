@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vidhatri | IoT & Software Developer</title>
+<style>
+:root{--bg:#07101f;--card:#0d1a2d;--text:#f4f7ff;--muted:#9eabc0;--accent:#7567ff;--accent2:#9a8cff;--line:#1b2a40}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;left:0;width:100%;z-index:10;background:rgba(7,16,31,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav{max-width:1120px;margin:auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:1.35rem;font-weight:800}.logo span{color:var(--accent2)}
+.navlinks{display:flex;gap:25px;font-size:.9rem;color:#c9d2e2}
+.navlinks a:hover{color:white}
+.btn{display:inline-block;padding:12px 19px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#584cff);font-weight:700;box-shadow:0 10px 30px rgba(117,103,255,.25)}
+.hero{min-height:100vh;display:grid;place-items:center;padding:120px 24px 70px;background:radial-gradient(circle at 75% 35%,rgba(117,103,255,.18),transparent 28%),radial-gradient(circle at 20% 20%,rgba(70,160,255,.10),transparent 30%)}
+.hero-inner{max-width:1120px;width:100%;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.badge{display:inline-block;padding:7px 13px;border:1px solid #2a3b58;border-radius:99px;color:#b8c4d8;margin-bottom:20px;font-size:.85rem}
+h1{font-size:clamp(3rem,7vw,5.8rem);line-height:.98;letter-spacing:-.06em;margin-bottom:18px}
+.gradient{background:linear-gradient(90deg,#fff,#9e93ff);-webkit-background-clip:text;color:transparent}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:590px;margin-bottom:28px}
+.actions{display:flex;gap:14px;flex-wrap:wrap}.outline{padding:11px 19px;border:1px solid #34435b;border-radius:12px;color:#dce4f2}
+.visual{height:430px;border-radius:35px;border:1px solid #263852;background:linear-gradient(145deg,#101f35,#0a1322);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.visual:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(117,103,255,.28);filter:blur(10px)}
+.avatar{position:relative;width:260px;height:320px;border-radius:140px 140px 35px 35px;background:linear-gradient(160deg,#d9c9ff,#6670ff 55%,#192b48);display:flex;align-items:flex-end;justify-content:center;box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.avatar span{font-size:6rem;font-weight:900;color:#fff;opacity:.9;margin-bottom:35px}
+section{padding:95px 24px}
+.container{max-width:1120px;margin:auto}
+.section-title{font-size:2.1rem;margin-bottom:10px}.section-sub{color:var(--muted);margin-bottom:35px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;transition:.25s}
+.card:hover{transform:translateY(-5px);border-color:#45577a}
+.skill-icon{font-size:2rem;margin-bottom:12px}.card h3{margin-bottom:6px}.card p{color:var(--muted);font-size:.92rem}
+.skills{background:#091426}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.project{padding:0;overflow:hidden}.project-img{height:190px;background:linear-gradient(135deg,#182d4d,#40369b);display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800}.project:nth-child(2) .project-img{background:linear-gradient(135deg,#153c51,#4263b7)}.project:nth-child(3) .project-img{background:linear-gradient(135deg,#142b43,#263c70)}.project:nth-child(4) .project-img{background:linear-gradient(135deg,#19352f,#435f62)}
+.project-body{padding:22px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}.tag{font-size:.75rem;padding:5px 9px;border-radius:99px;background:#16253a;color:#b8c8df}
+.timeline{position:relative;max-width:850px}.item{border-left:2px solid #334766;padding:0 0 35px 28px;position:relative}.item:before{content:"";position:absolute;left:-7px;top:3px;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.item h3{margin-bottom:3px}.item .meta{color:var(--accent2);font-size:.88rem}.item p{color:var(--muted)}
+.achievements{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.achievement{display:flex;gap:18px;align-items:flex-start}.num{min-width:44px;height:44px;border-radius:12px;background:#171e48;display:grid;place-items:center;color:#a89fff;font-weight:800}
+.contact{background:#091426}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}.contact-info p{color:var(--muted);max-width:500px;margin:15px 0 25px}
+form{display:grid;gap:13px}.input{width:100%;padding:14px 15px;border:1px solid #2a3a53;background:#0b1729;color:white;border-radius:11px;font:inherit}textarea.input{min-height:130px;resize:vertical}
+footer{padding:28px 24px;border-top:1px solid var(--line);text-align:center;color:#77869d;font-size:.9rem}
+@media(max-width:850px){.navlinks{display:none}.hero-inner,.contact-grid{grid-template-columns:1fr}.visual{height:330px}.grid{grid-template-columns:repeat(2,1fr)}.projects,.achievements{grid-template-columns:1fr}h1{font-size:4rem}}
+@media(max-width:520px){section{padding:70px 18px}.grid{grid-template-columns:1fr}.hero{padding-left:18px;padding-right:18px}h1{font-size:3.3rem}}
+
+/* Creative animation layer */
+body{background:radial-gradient(circle at 15% 15%,rgba(255,50,200,.14),transparent 25%),radial-gradient(circle at 85% 35%,rgba(50,190,255,.13),transparent 28%),#080817;background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.035;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:24px 24px;z-index:-1}
+nav{background:rgba(8,8,23,.72);backdrop-filter:blur(18px)}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 75% 45%,rgba(139,92,246,.22),transparent 28%)}
+.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;filter:blur(70px);z-index:-1;animation:floatBlob 9s ease-in-out infinite}
+.hero:before{width:280px;height:280px;background:#ff35c8;left:-90px;top:12%}.hero:after{width:330px;height:330px;background:#29d9ff;right:-100px;bottom:-80px;animation-delay:2s}
+@keyframes floatBlob{50%{transform:translate(45px,-35px) scale(1.15)}}
+h1{letter-spacing:-.065em}.gradient{background:linear-gradient(90deg,#fff,#ff57d1,#8f75ff,#36d9ff,#fff);background-size:250%;-webkit-background-clip:text;color:transparent;animation:gradientMove 5s linear infinite}
+@keyframes gradientMove{to{background-position:250% center}}
+.btn{background:linear-gradient(100deg,#ff4ecd,#8b5cf6,#36b9ff,#ff4ecd);background-size:300%;animation:buttonGlow 6s linear infinite;transition:.3s}
+@keyframes buttonGlow{to{background-position:300% center}}
+.card,.project,.achievement{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;position:relative;overflow:hidden}
+.card:before,.project:before,.achievement:before{content:"";position:absolute;inset:-2px;background:linear-gradient(120deg,transparent,#ff4ecd,transparent,#36d9ff,transparent);opacity:0;transition:.35s;z-index:0}
+.card:hover:before,.project:hover:before,.achievement:hover:before{opacity:.28;animation:borderSweep 1.2s linear}
+@keyframes borderSweep{to{transform:translateX(100%)}}
+.card>* ,.project>* ,.achievement>*{position:relative;z-index:1}
+.project-img{position:relative;overflow:hidden}.project-img:after{content:"↗";position:absolute;right:18px;bottom:15px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);font-size:1.3rem;transition:.3s}.project:hover .project-img:after{transform:rotate(45deg) scale(1.1)}
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}.reveal.show{opacity:1;transform:none}
+.skill-icon{animation:iconFloat 3s ease-in-out infinite}.card:nth-child(2) .skill-icon{animation-delay:.3s}.card:nth-child(3) .skill-icon{animation-delay:.6s}.card:nth-child(4) .skill-icon{animation-delay:.9s}
+@keyframes iconFloat{50%{transform:translateY(-5px) rotate(3deg)}}
+@media(max-width:850px){.links{display:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><div class="nav">
+<div class="logo">Vidhatri<span>.</span></div>
+<div class="navlinks">
+<a href="#home">Home</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
+</div>
+<a class="btn" href="#contact">Let's Connect</a>
+</div></nav>
+
+<header class="hero" id="home"><div class="hero-inner">
+<div>
+<div class="badge">B.Tech Student • IoT & Software Developer</div>
+<h1>Hi, I'm<br><span class="gradient">Vidhatri</span></h1>
+<p>I build innovative solutions using IoT, AI and modern software technologies to solve real-world problems.</p>
+<div class="actions"><a class="btn" href="#projects">View My Projects →</a><a class="outline" href="#contact">Contact Me</a></div>
+</div>
+<div class="visual"><div class="avatar"><span>V</span></div></div>
+</div></header>
+
+<section class="skills" id="skills"><div class="container">
+<h2 class="section-title">Skills</h2><p class="section-sub">Technologies and tools I work with.</p>
+<div class="grid">
+<div class="card"><div class="skill-icon">🐍</div><h3>Python</h3><p>Programming & problem solving</p></div>
+<div class="card"><div class="skill-icon">☕</div><h3>Java</h3><p>Object-oriented development</p></div>
+<div class="card"><div class="skill-icon">⚙️</div><h3>C / C++</h3><p>DSA and system fundamentals</p></div>
+<div class="card"><div class="skill-icon">🗄️</div><h3>SQL / PL-SQL</h3><p>Database development</p></div>
+<div class="card"><div class="skill-icon">🌐</div><h3>Web Development</h3><p>HTML, CSS, JavaScript, React</p></div>
+<div class="card"><div class="skill-icon">📡</div><h3>IoT</h3><p>Embedded systems and sensors</p></div>
+<div class="card"><div class="skill-icon">🤖</div><h3>AI / OpenCV</h3><p>Intelligent applications</p></div>
+<div class="card"><div class="skill-icon">🔧</div><h3>Tools</h3><p>Git, GitHub, MongoDB, MySQL</p></div>
+</div></div></section>
+
+<section id="projects"><div class="container">
+<h2 class="section-title">Projects</h2><p class="section-sub">A few things I've built and worked on.</p>
+<div class="projects">
+<div class="card project"><div class="project-img">ECOPULSE</div><div class="project-body"><h3>Smart Campus Energy Dashboard</h3><p>Real-time energy monitoring, prediction and AI-based optimization for buildings.</p><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">AI</span></div></div></div>
+<div class="card project"><div class="project-img">TRIPMATE</div><div class="project-body"><h3>Tripmate</h3><p>Travel itinerary planner with map integration and personalized suggestions.</p><div class="tags"><span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">Map API</span></div></div></div>
+<div class="card project"><div class="project-img">NAVABLE</div><div class="project-body"><h3>Navable</h3><p>AI-powered navigation and location-based services for a smarter travel experience.</p><div class="tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">API</span></div></div></div>
+<div class="card project"><div class="project-img">SMART CANE</div><div class="project-body"><h3>Smart Blind Cane</h3><p>Low-cost smart cane using obstacle detection, AI and haptic feedback.</p><div class="tags"><span class="tag">Arduino</span><span class="tag">ESP32-CAM</span><span class="tag">Python</span></div></div></div>
+</div></div></section>
+
+<section id="education"><div class="container">
+<h2 class="section-title">Education</h2><p class="section-sub">My academic journey.</p>
+<div class="timeline">
+<div class="item"><h3>B.Tech in Internet of Things (IoT)</h3><div class="meta">2022 – 2026</div><p>College Name • CGPA: 9.15</p></div>
+<div class="item"><h3>Intermediate (Class XII)</h3><div class="meta">2020 – 2022</div><p>School Name • Percentage: 97%</p></div>
+<div class="item"><h3>Class X</h3><div class="meta">2019 – 2020</div><p>School Name • Percentage: 95%</p></div>
+</div></div></section>
+
+<section id="achievements" class="skills"><div class="container">
+<h2 class="section-title">Achievements</h2><p class="section-sub">Milestones I'm proud of.</p>
+<div class="achievements">
+<div class="card achievement"><div class="num">01</div><div><h3>Hackathon — 2nd Prize</h3><p>Built a Smart Campus Energy Dashboard during a 24-hour hackathon.</p></div></div>
+<div class="card achievement"><div class="num">02</div><div><h3>JPMorgan Chase</h3><p>Reached the HireVue 3rd round during the 2026 application process.</p></div></div>
+<div class="card achievement"><div class="num">03</div><div><h3>IoT & DSA Projects</h3><p>Completed multiple academic and personal projects across IoT, software and DSA.</p></div></div>
+<div class="card achievement"><div class="num">04</div><div><h3>Continuous Learning</h3><p>Actively building skills through technical projects, hackathons and coding practice.</p></div></div>
+</div></div></section>
+
+<section class="contact" id="contact"><div class="container contact-grid">
+<div class="contact-info"><h2 class="section-title">Let's Connect</h2><p>I'm open to internships, projects, collaborations and opportunities to learn and build meaningful technology.</p>
+<p>📧 Email: your-email@example.com</p><p>💼 LinkedIn: linkedin.com/in/your-profile</p><p>💻 GitHub: github.com/DonthVidh</p></div>
+<form onsubmit="event.preventDefault(); alert('Thanks! Your message form is ready to connect to a backend or email service.');">
+<input class="input" placeholder="Your Name" required><input class="input" type="email" placeholder="Your Email" required><textarea class="input" placeholder="Your Message" required></textarea><button class="btn" type="submit">Send Message →</button>
+</form></div></section>
+
+<footer>© 2026 Vidhatri. Built with passion • Learn • Build • Grow</footer>
+
+<script>
+const cursor=document.createElement("div");cursor.style.cssText="position:fixed;width:16px;height:16px;border:2px solid #31f0df;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:.18s;mix-blend-mode:screen";document.body.appendChild(cursor);document.addEventListener("mousemove",e=>{cursor.style.left=e.clientX+"px";cursor.style.top=e.clientY+"px"});
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("show")),{threshold:.12});document.querySelectorAll("section,.hero-inner").forEach(e=>{e.classList.add("reveal");io.observe(e)});
+document.querySelectorAll("a,.btn,.card,.project,.achievement").forEach(e=>{e.addEventListener("mouseenter",()=>{cursor.style.width="38px";cursor.style.height="38px";cursor.style.background="rgba(49,240,223,.12)"});e.addEventListener("mouseleave",()=>{cursor.style.width="16px";cursor.style.height="16px";cursor.style.background="transparent"})});
+</script>
+</body>
+</html>
